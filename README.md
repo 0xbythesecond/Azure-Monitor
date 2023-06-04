@@ -1,5 +1,9 @@
 # Azure-Monitor
 
+<p align="center">
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/80f8e4de-ca09-4176-b1df-28a83fc93b0d" height="80%" width="80%" alt="Azure Monitor"/>
+</p>
+
 ## Collect data from an Azure virtual machine with Azure Monitor
 
 Duration: 20 minutes
@@ -45,6 +49,9 @@ When prompted for credentials, use the following:
 |User: | localadmin|
 |------|------|
 | Password: | Use a password that can be remembered easily|
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/fcd85178-a242-428e-840c-3db5e89ff5bd" height="80%" width="80%" alt="Create Resource Group and Virtual Machine in PS1(2)"/>
+  
 
 Wait for the virtual machine deployment to complete.
 
@@ -53,6 +60,9 @@ Run the following command to confirm that the virtual machine named "myVM" was c
 ```powershell
 Get-AzVM -Name 'myVM' -ResourceGroupName 'AZ500LAB131415' | Format-Table
 ```
+
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/939cb4b4-595e-4e85-9142-fabfbfa313cc" height="80%" width="80%" alt="Successfully Deployed VM"/>
+  
   
 Close the Cloud Shell pane.
   
@@ -79,6 +89,9 @@ On the Basics tab of the Create Log Analytics workspace blade, specify the follo
 | Resource group: | AZ500LAB131415|
 | Name: | Enter any valid, globally unique name for the Log Analytics workspace.|
 | Region: | South Central US|
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/e2811af8-4f3f-414c-8343-446c7a03bad3" height="50%" width="50%" alt="Create Log Analytics Workspace"/>
+  
 
 Select "Review + create."
 
@@ -103,14 +116,24 @@ In the Azure portal, navigate back to the Log Analytics workspaces blade.
 In the list of workspaces, click the entry representing the workspace you created in the previous task.
 
 On the Log Analytics workspace blade, on the Overview page, in the "Connect a Data Source" section, click the "Azure Virtual machines (VMs)" entry.
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/c98d3f03-922f-4754-915f-db477aaea4ae" height="70%" width="70%" alt="Connect a Data Source (VM)"/>
+  
 
   >**Note**: For the agent to be successfully installed, the virtual machine must be running.
 
 In the list of virtual machines, locate the entry representing the Azure VM "myVM" you deployed in Task 1 and note that it is listed as "Not connected."
 
 Click the "myVM" entry and then, on the "myVM" blade, click "Connect."
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/5061f334-44b3-41fe-9821-02446b8eaff1" height="50%" width="50%" alt="Connect VM to LAW"/>
+  
 
 Wait for the virtual machine to connect to the Log Analytics workspace. The status displayed on the "myVM" blade will change from "Connecting" to "This workspace."
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/be9c6b5e-3a4a-45cc-a2ad-37fe2a7c1d7b" height="40%" width="40%" alt="Connected VM to LAW"/>
+  
+  >**Note**: This may take a few minutes. The Status displayed on the myVM blade, will change from Connecting to This workspace.  
   
 </details> 
 
@@ -126,24 +149,30 @@ Wait for the virtual machine to connect to the Log Analytics workspace. The stat
 
 In the Azure portal, navigate back to the Log Analytics workspace you created earlier in this exercise.
 
-On the Log Analytics workspace blade, in the "Settings" section, click "Legacy agents management."
+On the Log Analytics workspace blade, in the "Classic" section, click "Legacy agents management."
 
 On the Agents configuration blade, review the configurable settings including Windows Event Logs, Windows Performance Counters, Linux Performance Counters, IIS Logs, and Syslog.
 
 Ensure that "Windows Event Logs" is selected, click "+ Add windows event log," and in the listing of event log types, select "System."
+ 
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/7aa92297-42ad-4b16-8230-8f01a19647dc" height="80%" width="80%" alt="Add Windows Event Logs"/>  
+ 
+  >**Note**: This is how you add event logs to the workspace. Other choices include, for example, Hardware events or Key Management Service.  
 
 Deselect the "Information" checkbox, leaving the "Error" and "Warning" checkboxes selected.
 
 Click "Windows Performance Counters," click "+ Add performance counter," review the listing of available performance counters, and add the following ones:
 
-Memory(*)\Available Memory Mbytes
-Process(*)% Processor Time
-Event Tracing for Windows\Total Memory Usage — Non-Paged Pool
-Event Tracing for Windows\Total Memory Usage — Paged Pool
+- Memory(*)\Available Memory Mbytes
+- Process(*)% Processor Time
+- Event Tracing for Windows\Total Memory Usage — Non-Paged Pool
+- Event Tracing for Windows\Total Memory Usage — Paged Pool
 
   >**Note**: The counters are added and configured with a 60-second collection sample interval.
 
 On the Agents configuration blade, click "Apply."
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/c5831563-6c27-4e0c-bc10-dc193afc18b1" height="80%" width="80%" alt="Add Performance Counter"/>
   
 </details>  
 
@@ -163,13 +192,32 @@ On the Log Analytics workspace blade, in the "General" section, click "Logs."
 
 If needed, close the "Welcome to Log Analysis" window.
 
-On the Queries pane, in the "All Queries" column, scroll down to the bottom of the list of resource types, and click "Virtual machines."
+On the Queries pane, in the "All Queries" column, scroll down to the bottom of the list of resource types, and click "Azure Monitor."
 
 Review the list of predefined queries, select "Memory and CPU usage," and click the corresponding "Run" button.
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/2bfb1374-ca95-408e-a9e4-d401896560b3" height="90%" width="90%" alt="Run Memory and CPU Usage"/>
+  
 
   >**Note**: You can start with the query "Virtual machine available memory." If you don't get any results, check that the scope is set to "virtual machine."
 
 The query will automatically open in a new query tab. Note: Log Analytics uses the Kusto query language. You can customize the existing queries or create your own.
+  
+<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/4381c4fe-72e8-4000-9c4a-daf9f5fae734" height="70%" width="70%" alt="Query Results for Memory and CPU Usage"/>
+  
+Kusto Query Language (KQL) that was run for the Memory and CPU Usage:
+  
+```kql
+// Memory and CPU usage 
+// Chart all computers' used memory and CPU, over the last hour. 
+Perf
+| where TimeGenerated > ago(1h)
+| where (CounterName == "% Processor Time" and InstanceName == "_Total") or CounterName == "% Used Memory"
+| project TimeGenerated, CounterName, CounterValue
+| summarize avg(CounterValue) by CounterName, bin(TimeGenerated, 1m)
+| render timechart
+```  
+  
 
   >**Note**: The results of the query you selected are automatically displayed below the query pane. To re-run the query, click "Run."
 
@@ -191,8 +239,8 @@ goto loop
 ```  
   
 Switch back to the Log Analytics blade and re-run the query. You might need to wait a few minutes for data to be collected before re-running the query.
-Results:
-You have used a Log Analytics workspace to configure data sources and query logs from the Azure virtual machine.
+
+Results: You have used a Log Analytics workspace to configure data sources and query logs from the Azure virtual machine.
   
 </details>   
 
