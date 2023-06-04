@@ -8,7 +8,7 @@
 
 Duration: 20 minutes
 
-Objective:
+## Objective
 In this exercise, I will collect data from an Azure virtual machine using Azure Monitor. I will deploy a virtual machine, create a Log Analytics workspace, enable the Log Analytics virtual machine extension, configure data collection, and view/query the collected data.
 
 Prerequisites:
