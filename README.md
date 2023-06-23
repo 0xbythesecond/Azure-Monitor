@@ -1,8 +1,7 @@
 # Azure-Monitor
 
-<p align="center">
-<img src="https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/80f8e4de-ca09-4176-b1df-28a83fc93b0d" height="80%" width="80%" alt="Azure Monitor"/>
-</p>
+![Azure Monitor(1)](https://github.com/0xbythesecond/Azure-Monitor/assets/23303634/c1860eb5-ced4-423e-aa30-88f1a2cf15b7)
+
 
 ## Collect data from an Azure virtual machine with Azure Monitor
 
