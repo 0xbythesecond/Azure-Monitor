@@ -245,7 +245,7 @@ Switch back to the Log Analytics blade and re-run the query. You might need to w
 This exercise provided hands-on experience with Azure Monitor and Log Analytics for data collection and analysis. It familiarized me with deploying virtual machines, creating workspaces, connecting virtual machines to workspaces, configuring data collection settings, and running queries for analysis. It emphasized the significance of monitoring data to optimize performance and make informed decisions.  
   
 ## Conclusion  
-This exercise demonstrated the process of collecting data from an Azure virtual machine using Azure Monitor and Log Analytics. We deployed a virtual machine, created a Log Analytics workspace, enabled the Log Analytics virtual machine extension, configured data collection settings, and viewed/query the collected data. It highlighted the importance of monitoring and analyzing data to gain insights into virtual machine performance and behavior.  
+This exercise demonstrated the process of collecting data from an Azure virtual machine using Azure Monitor and Log Analytics. We deployed a virtual machine, created a Log Analytics workspace, enabled the Log Analytics virtual machine extension, configured data collection settings, and viewed/queried the collected data. It highlighted the importance of monitoring and analyzing data to gain insights into virtual machine performance and behavior.  
 
 <p align="right"> Continue to <a href="https://github.com/0xbythesecond/Microsoft-Defender-for-Cloud">Microsoft Defender for Cloud</a></p>
 
